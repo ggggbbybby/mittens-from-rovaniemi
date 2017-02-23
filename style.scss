@@ -287,3 +287,32 @@ footer {
 // ... Otherwise it really bloats up the top of the CSS file and makes it difficult to find the start
 @import "highlights";
 @import "svg-icons";
+
+
+// Mittens
+.mitten-chart {
+  width: 800px;
+  display: flex;
+}
+
+.color-selectors {
+  width: 200px;
+  .color-selector {
+    padding-bottom: 10px;
+  }
+}
+
+.mitten {
+  text-align: center;
+  width: 600px;
+
+  .row {
+    height: 100%;
+    .col {
+      display: inline-block;
+      border: 1px lightgray dotted;
+      margin-left: -1px;
+      margin-bottom: -1px;
+    }
+  }
+}

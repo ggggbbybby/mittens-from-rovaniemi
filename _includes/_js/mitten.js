@@ -1,0 +1,51 @@
+class Mitten {
+  constructor(size) {
+    this.size = size;
+    this.colors = {
+      A: "#FCFCF3",
+      B: "#0000ff",
+      C: "#ffff00",
+      D: "#ff0000"
+    };
+
+    this.chart = $('<div class="mitten"></div>');
+  }
+
+  draw() {
+    var rows = this.config.split("\n").filter(Boolean);
+    $.each(rows, this.appendNewRow.bind(this));
+
+    $('.mitten').replaceWith(this.chart);
+
+    $.each(this.colors, function(key, value) {
+      $(`input#color-${key}`).val(value);
+    });
+  }
+
+  recolor(e) {
+    var colorKey = e.target.dataset.colorKey;
+    this.colors[colorKey] = e.target.value;
+    $(`.mitten .col[data-color-key=${colorKey}]`).css('background-color', e.target.value);
+  }
+
+  appendNewRow(rowIdx, row) {
+    var newRow = $(`<div class="row" style="height:${this.size}"></div>`);
+    var cols = row.trim().split("");
+    $.each(cols, function(colIdx, colorKey) {
+      newRow.append(this.newCol(colorKey));
+    }.bind(this));
+    this.chart.append(newRow);
+  }
+
+  newCol(colorKey) {
+    if (!this.colors[colorKey]) { debugger ; }
+    return $(`
+        <div class="col" 
+             data-color-key="${colorKey}" 
+             style="width:${this.size};
+                    height:${this.size};
+                    background-color:${this.colors[colorKey]};">
+        </div>
+    `);
+  }
+}

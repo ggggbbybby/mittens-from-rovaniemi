@@ -1,0 +1,39 @@
+---
+layout: default
+---
+<script type="text/javascript">
+  {% include _js/mitten.js %}
+  window.Mitten = new Mitten("15px");
+</script>
+{{ content }}
+
+<div class="mitten-chart">
+    <div class="mitten"></div>
+    <div class="color-selectors">
+        <div class="color-selector">
+            <input type="color" id="color-A" data-color-key="A"/>
+            <label for="color-A">Background Color</label>
+        </div>
+
+        <div class="color-selector">
+            <input id="color-B" type="color" data-color-key="B">
+            <label for="color-B">Pattern Color #1</label>
+        </div>
+
+        <div class="color-selector">
+            <input type="color" id="color-C" data-color-key="C"/>
+            <label for="color-C">Pattern Color #2</label>
+        </div>
+
+        <div class="color-selector">
+            <input type="color" id="color-D" data-color-key="D"/>
+            <label for="color-D">Pattern Color #2</label>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+  window.Mitten.draw();
+  $('input[type=color]').on('input', window.Mitten.recolor.bind(window.Mitten));
+</script>
+

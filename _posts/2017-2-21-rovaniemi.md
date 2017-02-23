@@ -2,12 +2,10 @@
 layout: mitten
 title: Mitten Chart
 ---
-<h1>
-    Mittens from Rovaniemi
-</h1>
+# Mittens from Rovaniemi
 
 <script type="text/javascript">
-  window.Mitten.config = `
+    window.Mitten.config = `
 AAAAAABBAACCAABBDDADDBBAACCAABBAAAAAA
 AAAAABBAACCAABBDDAAADDBBAACCAABBAAAAA
 AAAABBAACCAABBDDAACAADDBBAACCAABBAAAA
