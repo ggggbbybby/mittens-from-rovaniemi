@@ -12,8 +12,9 @@ class Mitten {
   }
 
   draw() {
-    var rows = this.config.split("\n").filter(Boolean);
-    $.each(rows, this.appendNewRow.bind(this));
+    this.rows = this.color_chart.split("\n").filter(Boolean);
+    this.overlay = this.stitch_chart.split("\n").filter(Boolean);
+    $.each(this.rows, this.appendNewRow.bind(this));
 
     $('.mitten').replaceWith(this.chart);
 
@@ -32,19 +33,20 @@ class Mitten {
     var newRow = $(`<div class="row" style="height:${this.size}"></div>`);
     var cols = row.trim().split("");
     $.each(cols, function(colIdx, colorKey) {
-      newRow.append(this.newCol(colorKey));
+      var overlay = this.overlay[rowIdx][colIdx] || " ";
+      newRow.append(this.newCol(colorKey, overlay));
     }.bind(this));
     this.chart.append(newRow);
   }
 
-  newCol(colorKey) {
-    if (!this.colors[colorKey]) { debugger ; }
+  newCol(colorKey, overlay) {
     return $(`
         <div class="col" 
              data-color-key="${colorKey}" 
              style="width:${this.size};
                     height:${this.size};
                     background-color:${this.colors[colorKey]};">
+        ${overlay}
         </div>
     `);
   }
