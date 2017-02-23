@@ -11,22 +11,22 @@ layout: default
     <div class="mitten"></div>
     <div class="color-selectors">
         <div class="color-selector">
-            <input id="color-A" data-color-key="A"/>
+            <input id="color-A" data-color-key="A" size="10"/>
             <label for="color-A">Background Color</label>
         </div>
 
         <div class="color-selector">
-            <input id="color-B" data-color-key="B">
+            <input id="color-B" data-color-key="B" size="10"/>
             <label for="color-B">Pattern Color #1</label>
         </div>
 
         <div class="color-selector">
-            <input id="color-C" data-color-key="C"/>
+            <input id="color-C" data-color-key="C" size="10"/>
             <label for="color-C">Pattern Color #2</label>
         </div>
 
         <div class="color-selector">
-            <input id="color-D" data-color-key="D"/>
+            <input id="color-D" data-color-key="D" size="10"/>
             <label for="color-D">Pattern Color #2</label>
         </div>
     </div>
@@ -34,6 +34,6 @@ layout: default
 
 <script type="text/javascript">
   window.Mitten.draw();
-  $('input["data-color-key"]').on('input', window.Mitten.recolor.bind(window.Mitten));
+  $('input[data-color-key]').on('input', window.Mitten.recolor.bind(window.Mitten));
 </script>
 
