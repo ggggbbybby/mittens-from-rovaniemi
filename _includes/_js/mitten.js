@@ -2,10 +2,10 @@ class Mitten {
   constructor(size) {
     this.size = size;
     this.colors = {
-      A: "#FCFCF3",
-      B: "#0000ff",
-      C: "#ffff00",
-      D: "#ff0000"
+      A: "ivory",
+      B: "blue",
+      C: "orangered",
+      D: "green"
     };
 
     this.chart = $('<div class="mitten"></div>');
